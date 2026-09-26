@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Librerías Andinas | Perú</title>
+<style>
+:root{
+--primary:#12355b;
+--secondary:#f5b700;
+--green:#25d366;
+--light:#f7f9fc;
+}
+*{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{margin:0;background:var(--light);color:#222}
+header{
+position:sticky;top:0;z-index:20;
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 8%;background:#fff;box-shadow:0 2px 15px #ddd
+}
+.logo{font-size:26px;font-weight:800;color:var(--primary)}
+nav a{margin-left:25px;text-decoration:none;color:#333;font-weight:600}
+.hero{
+min-height:620px;padding:80px 10%;display:flex;align-items:center;color:white;
+background:linear-gradient(90deg,rgba(18,53,91,.9),rgba(18,53,91,.35)),
+url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da") center/cover
+}
+.hero h1{font-size:55px;max-width:700px;margin:0 0 20px}
+.hero p{font-size:22px;max-width:600px}
+.btn{
+display:inline-block;background:var(--green);color:white;padding:16px 30px;
+border-radius:40px;text-decoration:none;font-weight:bold;margin-top:20px
+}
+section{padding:70px 8%}
+.title{text-align:center;color:var(--primary);font-size:38px}
+.grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;margin-top:40px
+}
+.card{
+background:white;padding:30px;border-radius:20px;
+box-shadow:0 8px 25px #ddd;text-align:center
+}
+.icon{font-size:45px}
+.products img{width:100%;height:180px;object-fit:cover;border-radius:15px}
+form{
+max-width:600px;margin:auto;background:white;padding:35px;border-radius:20px;
+box-shadow:0 10px 30px #ddd
+}
+input,textarea,button{
+width:100%;padding:15px;margin:8px 0;border-radius:10px;border:1px solid #ddd
+}
+button{background:var(--primary);color:white;font-size:18px;cursor:pointer}
+.whatsapp{
+position:fixed;right:25px;bottom:25px;background:var(--green);
+color:white;padding:18px;border-radius:50%;font-size:25px;text-decoration:none
+}
+#chat{
+position:fixed;right:25px;bottom:90px;width:340px;background:white;
+border-radius:20px;box-shadow:0 10px 40px #aaa;overflow:hidden;z-index:30
+}
+.chat-head{background:var(--primary);color:white;padding:18px;font-weight:bold}
+.chat-body{padding:15px}
+.chat-body button{background:#f5b700;color:#222;border:none;font-size:14px}
+footer{background:var(--primary);color:white;text-align:center;padding:30px}
+@media(max-width:700px){
+.hero h1{font-size:35px}
+nav{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">📚 Librerías Andinas</div>
+<nav>
+<a href="#productos">Productos</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h1>Todo para estudiar, crear y crecer</h1>
+<p>Libros, útiles escolares, materiales educativos y soluciones para empresas en Perú.</p>
+<a class="btn" href="https://wa.me/51929711893">💬 WhatsApp</a>
+</div>
+</section>
+
+<section>
+<h2 class="title">Nuestros servicios</h2>
+<div class="grid">
+<div class="card"><div class="icon">📚</div><h3>Libros</h3><p>Textos escolares, literatura y material educativo.</p></div>
+<div class="card"><div class="icon">✏️</div><h3>Útiles escolares</h3><p>Cuadernos, mochilas y accesorios.</p></div>
+<div class="card"><div class="icon">🏢</div><h3>Empresas</h3><p>Ventas corporativas y pedidos por mayor.</p></div>
+</div>
+</section>
+
+<section id="productos">
+<h2 class="title">Productos destacados</h2>
+<div class="grid products">
+<div class="card"><img src="https://images.unsplash.com/photo-1544717305-2782549b5136"><h3>Material escolar</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f"><h3>Libros</h3></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a"><h3>Oficina</h3></div>
+</div>
+</section>
+
+<section id="contacto">
+<h2 class="title">Solicita una cotización</h2>
+<form onsubmit="sendLead();return false">
+<input id="nombre" placeholder="Nombre completo" required>
+<input id="telefono" placeholder="WhatsApp" required>
+<input id="correo" placeholder="Correo electrónico">
+<textarea id="mensaje" placeholder="¿Qué producto necesitas?"></textarea>
+<button>Enviar solicitud</button>
+</form>
+</section>
+
+<div id="chat">
+<div class="chat-head">🤖 Asistente Librerías Andinas</div>
+<div class="chat-body">
+<p>Hola 👋 selecciona una consulta:</p>
+<button onclick="bot(1)">¿Qué venden?</button>
+<button onclick="bot(2)">¿Venta por mayor?</button>
+<button onclick="bot(3)">¿Delivery?</button>
+<button onclick="bot(4)">¿Atienden colegios?</button>
+<button onclick="bot(5)">¿Descuentos?</button>
+<button onclick="bot(6)">¿Cómo comprar?</button>
+<button onclick="bot(7)">Cotización</button>
+<button onclick="bot(8)">Horario</button>
+<button onclick="bot(9)">Ubicación</button>
+<button onclick="bot(10)">Asesor</button>
+</div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/51929711893">☏</a>
+
+<footer>
+© 2026 Librerías Andinas Perú | Atención al cliente
+</footer>
+
+<script>
+function bot(n){
+let r=[
+"",
+"📚 Vendemos libros, útiles escolares y productos de oficina.",
+"🏢 Tenemos ventas por mayor para empresas y colegios.",
+"🚚 Consultamos delivery según ubicación.",
+"🏫 Atendemos instituciones educativas.",
+"🎉 Tenemos promociones según temporada.",
+"🛒 Compra directamente por WhatsApp.",
+"📝 Solicita una cotización dejando tus datos.",
+"🕘 Atención lunes a sábado 9am - 7pm.",
+"📍 Consulta nuestra sede por WhatsApp.",
+"💬 Te comunicaremos con un asesor."
+];
+alert(r[n]);
+if(n==10) window.open("https://wa.me/51929711893");
+}
+function sendLead(){
+let t=`Nuevo cliente Librerías Andinas%0A
+Nombre: ${nombre.value}%0A
+Teléfono: ${telefono.value}%0A
+Correo: ${correo.value}%0A
+Consulta: ${mensaje.value}`;
+window.open("https://wa.me/51929711893?text="+t);
+}
+</script>
+
+</body>
+</html>
